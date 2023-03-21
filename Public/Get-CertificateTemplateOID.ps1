@@ -1,5 +1,4 @@
-﻿function Get-CertificateTemplateOID
-{
+﻿function Get-CertificateTemplateOID {
     <#
             .Synopsis
             returns a PKI template OID
@@ -14,23 +13,21 @@
             .NOTES
             This may require RSAT. 
     #>
-
-    [CmdletBinding(SupportsShouldProcess)]
+    [CmdletBinding()]
     [OutputType([String])]
-    Param
-    (
-        # Name of the template
-        [Parameter(Mandatory,HelpMessage = 'Name of the template')]
+    Param(
+        [Parameter(Mandatory, HelpMessage = 'Name of the template')]
         [ValidateNotNull()]
         [ValidateNotNullOrEmpty()]
         [Alias('cn')] 
-        [string]
-        $Name,
-
-        # Domain to search (defaults to curent machines domain)
-        [string]
-        $Domain = (Get-Domain).name
+        [string]$Name,
+        [string]$Domain = $env:USERDNSDOMAIN
     )
-    (Get-ADCertificateTemplate -Domain $domain -TemplateName $Name ).'msPKI-Cert-Template-OID'
-    
+    $OIDs = (Get-CertificateTemplate -Domain $domain -TemplateName $Name ).'msPKI-Cert-Template-OID'
+    $Return = $OIDs | Foreach-Object {
+        [PSCustomObject]@{
+            CertificateTemplateOID = $_
+        }
+    }
+    return $Return
 }
