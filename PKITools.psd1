@@ -24,7 +24,7 @@ GUID = 'a3d041cd-c02f-4538-8305-2ee043ce1740'
 Author = 'Jeremy Jackson'
 
 # Company or vendor of this module
-CompanyName = 'L3 Harris Technologies'
+CompanyName = ''
 
 # Copyright statement for this module
 Copyright = 'MIT Licence'
@@ -95,25 +95,25 @@ PrivateData = @{
     PSData = @{
 
         # Tags applied to this module. These help with module discovery in online galleries.
-        #Tags = 
+        #Tags =
 
         # A URL to the license for this module.
-        #LicenseUri = 
+        #LicenseUri =
 
         # A URL to the main website for this project.
-        #ProjectUri = 
+        #ProjectUri =
 
         # A URL to an icon representing this module.
         # IconUri = ''
 
         # ReleaseNotes of this module
-        #ReleaseNotes = 
+        #ReleaseNotes =
 
         # External dependent modules of this module
         # ExternalModuleDependencies = ''
 
     } # End of PSData hashtable
-    
+
  } # End of PrivateData hashtable
 
 # HelpInfo URI of this module
